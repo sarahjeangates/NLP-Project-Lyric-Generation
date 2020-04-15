@@ -11,8 +11,14 @@ import numpy as np
 
 # Step 1: Scraping the Lyrics
 
-# visit the website
-response = requests.get('http://www.metrolyrics.com/drake-lyrics.html') # UPDATE TO PLUG IN ANY ARTIST?
+# define the artist
+artist_i = 'Drake' # import from list?
+artist_i = artist_i.lower()
+artist_i = artist_i.replace(" ","-")
+
+# visit the artist's Metro Lyrics page
+response = requests.get('http://www.metrolyrics.com/' + artist_i + '-lyrics.html')
+# NEED TO CREATE FILTER TO INCLUDE ONLY ARTIST IN URL - CURRENTLY INCLUDING SOME SONGS THAT THEY ARE FEATURED IN AS WELL
 
 # separate the different types of content
 doc = pq(response.content)

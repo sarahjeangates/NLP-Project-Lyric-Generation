@@ -12,13 +12,12 @@ import numpy as np
 # Step 1: Scraping the Lyrics
 
 # define the artist
-artist_i = 'Drake' # import from list?
+artist_i = 'Drake' # can expand to other or multiple artists
 artist_i = artist_i.lower()
 artist_i = artist_i.replace(" ","-")
 
 # visit the artist's Metro Lyrics page
 response = requests.get('http://www.metrolyrics.com/' + artist_i + '-lyrics.html')
-# NEED TO CREATE FILTER TO INCLUDE ONLY ARTIST IN URL - CURRENTLY INCLUDING SOME SONGS THAT THEY ARE FEATURED IN AS WELL
 
 # separate the different types of content
 doc = pq(response.content)
@@ -39,7 +38,7 @@ for title in titles:
   doc2 = pq(response_title.content)
 
 
-  # find song name and append to list
+  # find song name and lyrics, then reformat
   name_full = doc2('h1')
   song_full = str(name_full.text())
   song = song_full.lower()
@@ -61,6 +60,7 @@ for title in titles:
     verse = doc2('.verse')
     lyrics = verse.text()
     lyrics = lyrics.replace("\n","|-|")
+
     # append the lyrics to list
     song_lyrics.append(lyrics)
 print('All done!')
@@ -86,13 +86,12 @@ lyrics_csv = pd.DataFrame(np.hstack((song.reshape(-1, 1), artist.reshape(-1, 1),
 #%%
 
 # Step 3: export the lyrics to csv
+# **Please chenge the directory to your own when running
 
-# NEED TO CHANGE THIS TO GITHUB REPO
 # define directory to export csv file to
-os.chdir(r'C:/Users/sjg27/OneDrive/Documents/GWU Data Science/Spring 20/NLP/Project/')
+os.chdir(r'C:/Users/sjg27/OneDrive/Documents/GitHub/NLP-Project-Lyric-Generation')
 
 # export csv file
-lyrics_csv.to_csv('lyrics2.csv', index=False) # DELETE THIS LINE AND...
-#lyrics_csv.to_csv('lyrics.csv', index=False) # UNCOMMENT THIS WHEN DONE TESTING
+lyrics_csv.to_csv('scraped_lyrics.csv', index=False)
 
 #%%

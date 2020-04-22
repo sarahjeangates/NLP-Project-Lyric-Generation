@@ -37,7 +37,6 @@ for title in titles:
   # separate the content
   doc2 = pq(response_title.content)
 
-
   # find song name and lyrics, then reformat
   name_full = doc2('h1')
   song_full = str(name_full.text())
@@ -86,7 +85,7 @@ lyrics_csv = pd.DataFrame(np.hstack((song.reshape(-1, 1), artist.reshape(-1, 1),
 #%%
 
 # Step 3: export the lyrics to csv
-# **Please chenge the directory to your own when running
+# **Please change the directory to your own when running
 
 # define directory to export csv file to
 os.chdir(r'C:/Users/sjg27/OneDrive/Documents/GitHub/NLP-Project-Lyric-Generation')

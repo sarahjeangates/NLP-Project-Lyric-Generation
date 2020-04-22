@@ -60,6 +60,7 @@ for title in titles:
     # find the song lyrics
     verse = doc2('.verse')
     lyrics = verse.text()
+    lyrics = lyrics.replace("\n","|-|")
     # append the lyrics to list
     song_lyrics.append(lyrics)
 print('All done!')

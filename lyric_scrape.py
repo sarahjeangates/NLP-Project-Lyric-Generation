@@ -48,20 +48,24 @@ for title in titles:
   # filter out artists that are not requested artist
   artist = song[0]
   if artist == artist_i:
-    name = song[1]
-    song_.append(name)
-
-    # append artist to list
-    artist = song[0]
-    song_artist.append(artist)
-
-    # find the song lyrics
     verse = doc2('.verse')
     lyrics = verse.text()
-    lyrics = lyrics.replace("\n","|-|")
+    # filter out songs with no lyrics stored
+    if len(lyrics) > 1:
+      name = song[1]
+      song_.append(name)
 
-    # append the lyrics to list
-    song_lyrics.append(lyrics)
+      # append artist to list
+      artist = song[0]
+      song_artist.append(artist)
+
+      # find the song lyrics
+      verse = doc2('.verse')
+      lyrics = verse.text()
+      lyrics = lyrics.replace("\n","|-|")
+
+      # append the lyrics to list
+      song_lyrics.append(lyrics)
 print('All done!')
 
 #VALIDATION
@@ -91,6 +95,6 @@ lyrics_csv = pd.DataFrame(np.hstack((song.reshape(-1, 1), artist.reshape(-1, 1),
 os.chdir(r'C:/Users/sjg27/OneDrive/Documents/GitHub/NLP-Project-Lyric-Generation')
 
 # export csv file
-lyrics_csv.to_csv('scraped_lyrics.csv', index=False)
+lyrics_csv.to_csv(artist_i + '_scraped_lyrics.csv', index=False)
 
 #%%

@@ -2,6 +2,7 @@
 Project to analyze the lyrics of a specified artist and generate similar stylistic lyrics to that artist.
 
 ## Using the Files
+The following list outlines the processes and files in sequential order:
 - Lyric_Scrape.ipynb contains the web scraper used to get lyrics from Metrolyrics.com for any artist of the user's choosing in notebook format.
 - Predict_Word_Model.ipynb loads the word model and gives predictions.
 - drake-songs.csv contains the data used to develop the models.  Other datasets can be used from the scraper.

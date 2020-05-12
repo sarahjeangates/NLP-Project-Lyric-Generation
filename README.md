@@ -12,7 +12,6 @@ The following list outlines the processes and files in sequential order:
 - lyric_generator.ipynb contains an early iteration of our character model that allows the user to enter their own phrase.  The model will predict the next characters.
 - lyric_generator_Words.ipynb contains the training for the word model using drake-songs.csv.
 - lyric_generator_character.ipynb contains the training for the character model using drake-songs.csv.
-- lyric_scrape.py contains the web scraper used to get lyrics from Metrolyrics.com for any artist of the user's choosing in Python script format.
 - **predict_Character_Model.ipynb** loads the character model and gives predictions.  This is the main notebook for the project.  It includes evaluation metrics for assessing model performance.
 
 ## Report

@@ -7,7 +7,7 @@ The following list outlines the processes and files in sequential order:
 - Predict_Word_Model.ipynb loads the word model and gives predictions.
 - drake-songs.csv contains the data used to develop the models.  Other datasets can be used from the scraper.
 - drake_character_model.h5 is the character model that has been trained on data from drake-songs.csv.
-- *_scraped_lyrics.csv any file with this naming is output from our scraper.  They can be used to train the models if you desire.
+- *-songs.csv any file with this naming is output from our scraper.  They can be used to train the models if you desire.
 - drake_word_model.h5 is the word model that has been trained on data from drake-songs.csv.
 - lyric_generator.ipynb contains an early iteration of our character model that allows the user to enter their own phrase.  The model will predict the next characters.
 - lyric_generator_Words.ipynb contains the training for the word model using drake-songs.csv.
